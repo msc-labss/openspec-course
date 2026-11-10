@@ -16,7 +16,13 @@ export function add(tasks, title) {
   return [...tasks, { id, title: text, done: false }];
 }
 
+export function parseId(text) {
+  if (text === undefined || text.trim() === '') return NaN;
+  return Number(text);
+}
+
 export function complete(tasks, id) {
+  if (Number.isNaN(id)) throw new Error('done needs a task id');
   if (!tasks.some((task) => task.id === id)) throw new Error(`no task ${id}`);
   return tasks.map((task) => (task.id === id ? { ...task, done: true } : task));
 }

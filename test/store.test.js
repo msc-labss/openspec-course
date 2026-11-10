@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { add, complete, format, remove } from '../src/store.js';
+import { add, complete, format, parseId, remove } from '../src/store.js';
 
 test('add gives the next id and trims the title', () => {
   const tasks = add(add([], 'write the spec'), '  ship it ');
@@ -18,6 +18,26 @@ test('complete marks one task done', () => {
 
 test('complete refuses an unknown id', () => {
   assert.throws(() => complete([], 7), /no task 7/);
+});
+
+test('complete refuses a missing id as a usage error', () => {
+  assert.throws(() => complete(add([], 'a'), NaN), (error) => {
+    assert.match(error.message, /done needs a task id/);
+    assert.doesNotMatch(error.message, /no task/);
+    return true;
+  });
+});
+
+test('parseId gives NaN for a missing, empty or non-numeric id', () => {
+  assert.equal(parseId(undefined), NaN);
+  assert.equal(parseId(''), NaN);
+  assert.equal(parseId(' '), NaN);
+  assert.equal(parseId('abc'), NaN);
+});
+
+test('parseId gives the number for a numeric id, including 0', () => {
+  assert.equal(parseId('2'), 2);
+  assert.equal(parseId('0'), 0);
 });
 
 test('remove from the middle leaves the other tasks unchanged', () => {
