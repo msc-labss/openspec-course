@@ -35,7 +35,7 @@ Removing a task SHALL NOT alter any other task: the remaining tasks SHALL keep t
 - **AND** task 3 still has id 3
 
 ### Requirement: Unknown id is rejected
-When the given id matches no task, the system SHALL fail without changing the task list: it SHALL print `tasklog: no task <id>` to standard error and exit with code 1. A missing or non-numeric id SHALL be treated as an id that matches no task.
+When the given id matches no task, the system SHALL fail without changing the task list: it SHALL print `tasklog: no task <id>` to standard error and exit with code 1.
 
 #### Scenario: Id that does not exist
 - **GIVEN** a task list with only task 1
@@ -49,7 +49,19 @@ When the given id matches no task, the system SHALL fail without changing the ta
 - **WHEN** the user runs `tasklog remove 1` again
 - **THEN** standard error shows `tasklog: no task 1` and the command exits with code 1
 
-#### Scenario: Missing or non-numeric id
-- **WHEN** the user runs `tasklog remove` with no id, or `tasklog remove abc`
-- **THEN** the command prints an error starting with `tasklog: no task` to standard error and exits with code 1
-- **AND** the task list is unchanged
+### Requirement: Missing or non-numeric id is rejected
+When no id is given, or the given id is not a number, the system SHALL fail without changing the task list: it SHALL print `tasklog: remove needs a task id` to standard error and exit with code 1. The system SHALL NOT print `tasklog: no task NaN`.
+
+#### Scenario: Missing id
+- **GIVEN** a task list with task 1
+- **WHEN** the user runs `tasklog remove` with no id
+- **THEN** standard error shows `tasklog: remove needs a task id`
+- **AND** the command exits with code 1
+- **AND** the task list still contains task 1
+
+#### Scenario: Non-numeric id
+- **GIVEN** a task list with task 1
+- **WHEN** the user runs `tasklog remove abc`
+- **THEN** standard error shows `tasklog: remove needs a task id`
+- **AND** the command exits with code 1
+- **AND** the task list still contains task 1

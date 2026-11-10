@@ -8,7 +8,8 @@ tasklog can add tasks and mark them done, but a task can never leave the list: a
 
 - Add a `remove <id>` command to the CLI that deletes the task with that id from the task file.
 - Removing works for both open and completed tasks, and leaves every other task (id, title, done state, order) untouched.
-- An id that matches no task (including a missing or non-numeric id) fails the same way `done` does today: `tasklog: no task <id>` on stderr, exit code 1, task file unchanged.
+- An id that matches no task fails the same way `done` does today: `tasklog: no task <id>` on stderr, exit code 1, task file unchanged.
+- A missing or non-numeric id is a usage error, not an unknown task: `tasklog: remove needs a task id` on stderr, exit code 1, task file unchanged. It never prints `no task NaN`.
 - Like `add` and `done`, a successful `remove` prints nothing and asks for no confirmation.
 - Document the command in the README usage block.
 
@@ -22,7 +23,7 @@ Assumptions recorded here rather than asked:
 
 ### New Capabilities
 
-- `task-removal`: deleting a task from the list by its id, including what happens to the remaining tasks and how an unknown id is reported.
+- `task-removal`: deleting a task from the list by its id, including what happens to the remaining tasks and how an unknown, missing or non-numeric id is reported.
 
 ### Modified Capabilities
 
@@ -32,6 +33,6 @@ None. The project has no specs yet, and the behaviour of `add`, `done` and `list
 
 - `src/store.js`: new exported function that returns the task list without the given id.
 - `src/cli.js`: new `remove` branch in the command dispatch.
-- `test/store.test.js`: tests for removal and for the unknown-id error.
+- `test/store.test.js`: tests for removal, the unknown-id error and the missing-id error.
 - `README.md`: one more line in the usage example.
 - No new dependencies and no change to the `tasks.json` format.
