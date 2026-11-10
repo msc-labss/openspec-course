@@ -1,0 +1,10 @@
+{
+  "name": "tasklog",
+  "version": "0.1.0",
+  "description": "A tiny task list for the terminal. Demo project of the MSC Labs OpenSpec course.",
+  "type": "module",
+  "bin": { "tasklog": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22.12" },
+  "license": "MIT"
+}
