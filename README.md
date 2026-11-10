@@ -27,7 +27,7 @@ episode, check out the tag before it.
 | 3 | [From tasks to code: apply](https://youtu.be/1EZYJU06NZk) (`/opsx:update`, then `/opsx:apply`) | `ep3` |
 | 4 | [Archive: specs become the record](https://youtu.be/z04lgq2amyc) (`/opsx:archive`, the delta merged into `openspec/specs/`) | `ep4` |
 | 5 | [Changing existing behaviour](https://youtu.be/zqWd_ONaSVo) (a MODIFIED delta, `openspec show --diff`, `/opsx:sync`) | `ep5` |
-| 6 | OpenSpec on a real project (`/opsx:explore`, context and rules in `openspec/config.yaml`; a change left open for you) | `ep6` |
+| 6 | [OpenSpec on a real project](https://youtu.be/VSdgbPnX-3s) (`/opsx:explore`, context and rules in `openspec/config.yaml`; a change left open for you) | `ep6` |
 
     git clone https://github.com/msc-labss/openspec-course.git
     cd openspec-course
