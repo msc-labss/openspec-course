@@ -23,8 +23,8 @@ episode, check out the tag before it.
 |---|---|---|
 | start | tasklog before OpenSpec | `start` |
 | 1 | [First setup](https://youtu.be/wm6H_v2THMg): install, `openspec init` | `ep1` |
-| 2 | Your first change: propose (`/opsx:propose`, the proposal, spec and tasks) | `ep2` |
-| 3 | From tasks to code: apply | later |
+| 2 | [Your first change: propose](https://youtu.be/R7PUFy1B8Z4) (`/opsx:propose`, the proposal, spec and tasks) | `ep2` |
+| 3 | From tasks to code: apply (`/opsx:update`, then `/opsx:apply`) | `ep3` |
 | 4 | Archive: specs become the record | later |
 | 5 | Changing existing behaviour | later |
 | 6 | OpenSpec on a real project | later |
