@@ -25,8 +25,8 @@ episode, check out the tag before it.
 | 1 | [First setup](https://youtu.be/wm6H_v2THMg): install, `openspec init` | `ep1` |
 | 2 | [Your first change: propose](https://youtu.be/R7PUFy1B8Z4) (`/opsx:propose`, the proposal, spec and tasks) | `ep2` |
 | 3 | [From tasks to code: apply](https://youtu.be/1EZYJU06NZk) (`/opsx:update`, then `/opsx:apply`) | `ep3` |
-| 4 | Archive: specs become the record (`/opsx:archive`, the delta merged into `openspec/specs/`) | `ep4` |
-| 5 | Changing existing behaviour | later |
+| 4 | [Archive: specs become the record](https://youtu.be/z04lgq2amyc) (`/opsx:archive`, the delta merged into `openspec/specs/`) | `ep4` |
+| 5 | Changing existing behaviour (a MODIFIED delta, `openspec show --diff`, `/opsx:sync`) | `ep5` |
 | 6 | OpenSpec on a real project | later |
 
     git clone https://github.com/msc-labss/openspec-course.git
