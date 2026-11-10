@@ -21,6 +21,12 @@ export function complete(tasks, id) {
   return tasks.map((task) => (task.id === id ? { ...task, done: true } : task));
 }
 
+export function remove(tasks, id) {
+  if (Number.isNaN(id)) throw new Error('remove needs a task id');
+  if (!tasks.some((task) => task.id === id)) throw new Error(`no task ${id}`);
+  return tasks.filter((task) => task.id !== id);
+}
+
 export function format(tasks) {
   if (tasks.length === 0) return 'No tasks yet.';
   return tasks.map((task) => `${task.done ? '[x]' : '[ ]'} ${task.id}  ${task.title}`).join('\n');

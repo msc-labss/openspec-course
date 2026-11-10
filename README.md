@@ -10,6 +10,7 @@ The project is **tasklog**, a tiny task list for the terminal. It has no depende
     node src/cli.js add "write the spec"
     node src/cli.js list
     node src/cli.js done 1
+    node src/cli.js remove 1
 
 Tests: `npm test` (Node 22.12 or newer).
 
